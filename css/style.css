@@ -1,0 +1,67 @@
+:root {
+    /* Color styles */
+    --notify: #8EDAFC;
+    --primary-icons: #B1B1B1;
+    --sec-icons: #6B7376;
+    --sec-color: #FFFFFF;
+    --top-color: #009688;
+
+}
+
+
+.background {
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background: rgb(220,219,209);
+background: linear-gradient(187deg, rgba(220,219,209,1) 22%, rgba(210,219,219,1) 57%);
+}
+
+.top-background {
+    background-color: var(--top-color);
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+main {
+    background-color: lightgrey;
+    width: 80%;
+    height: 90vh;
+    position: absolute;
+    top: 3%;
+    left: 12%;
+}
+
+.top-content {
+    height: 50px;
+    width: 100%;
+    margin-top: 8px;
+   
+}
+
+.top-img,
+.icons {
+    width: 30px;
+    height: 30px;
+
+}
+
+.top-content div p {
+    font-size: 10px;
+    color: grey;
+}
+
+.icons{
+    color: grey;
+   
+}
+
+.icons img{
+    fill:grey
+}
