@@ -29,8 +29,8 @@ createApp({
         },
         {
           id: 2,
-          name: 'Fabio',
-          avatar: './img/avatar_2.jpg',
+          name: 'Fabiola',
+          avatar: './img/avatar_6.jpg',
           visible: true,
           messages: [
             {
@@ -112,7 +112,7 @@ createApp({
         {
           id: 6,
           name: 'Claudia',
-          avatar: './img/avatar_5.jpg',
+          avatar: './img/avatar_io.jpg',
           visible: true,
           messages: [
             {
