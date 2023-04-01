@@ -47,8 +47,8 @@ main {
 
 .top-img,
 .icons {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 
 }
 
@@ -58,7 +58,7 @@ main {
     
 }
 
-.top-content div p {
+p {
     font-size: 10px;
     color: grey;
 }
@@ -66,10 +66,6 @@ main {
 .icons{
     color: grey;
    
-}
-
-.icons img{
-    fill:grey
 }
 
 .notify{
@@ -83,5 +79,17 @@ width: 100%;
 }
 .p-note{
    font-size: 10px;
+}
+.top-left{
+    height: 175px;
+    
+}
+.left-contact{
+    height: calc(100% - 175px);
+    overflow-y: auto;
+    width: 100%;
+}
+.border-top{
+    border-bottom: grey;
 }
 
