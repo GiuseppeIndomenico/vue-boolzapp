@@ -94,7 +94,7 @@ createApp({
         {
           id: 5,
           name: 'Alessandro L.',
-          avatar: './img/avatar_5.jpjp,
+          avatar: './img/avatar_5.jpg',
           visible: true,
           messages: [
             {
