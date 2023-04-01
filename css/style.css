@@ -52,6 +52,12 @@ main {
 
 }
 
+.bell{
+    width: 100%;
+    height: 100%;
+    
+}
+
 .top-content div p {
     font-size: 10px;
     color: grey;
@@ -65,3 +71,17 @@ main {
 .icons img{
     fill:grey
 }
+
+.notify{
+background-color: var(--notify);
+height: 70px;
+width: 100%;
+}
+
+.h-note{
+    font-size: 12px;
+}
+.p-note{
+   font-size: 10px;
+}
+
