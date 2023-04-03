@@ -13,8 +13,8 @@
     width: 100%;
     height: 100vh;
     z-index: -1;
-    background: rgb(220,219,209);
-background: linear-gradient(187deg, rgba(220,219,209,1) 22%, rgba(210,219,219,1) 57%);
+    background: rgb(220, 219, 209);
+    background: linear-gradient(187deg, rgba(220, 219, 209, 1) 22%, rgba(210, 219, 219, 1) 57%);
 }
 
 .top-background {
@@ -42,7 +42,7 @@ main {
     height: 50px;
     width: 100%;
     margin-top: 8px;
-   
+
 }
 
 .top-img,
@@ -52,10 +52,10 @@ main {
 
 }
 
-.bell{
+.bell {
     width: 100%;
     height: 100%;
-    
+
 }
 
 p {
@@ -63,47 +63,75 @@ p {
     color: grey;
 }
 
-.icons{
+.icons {
     color: grey;
-   
+
 }
 
-.notify{
-background-color: var(--notify);
-height: 70px;
-width: 100%;
+.notify {
+    background-color: var(--notify);
+    height: 70px;
+    width: 100%;
 }
 
-.h-note{
+.h-note {
     font-size: 12px;
 }
-.p-note{
-   font-size: 10px;
+
+.p-note {
+    font-size: 10px;
 }
-.top-left{
+
+.top-left {
     height: 175px;
-    
+
 }
-.left-contact{
+
+.left-contact {
     height: calc(100% - 175px);
     overflow-y: auto;
     width: 100%;
 }
-.border-top{
+
+.border-top {
     border-bottom: grey;
 }
 
-.main-content{
+.main-content {
     width: 100%;
     height: calc(100% - 100px);
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
+   
 }
-.rubric :hover{
+
+.rubric :hover {
     background-color: var(--sec-color);
 }
 
-.active{
+.active {
     background-color: lightgrey;
 }
 
+.mess h6 {
+    font-size: 14px;
+    font-size: small;
+    padding: 10px;
+}
+
+.sent {
+    background-color: lightgreen;
+    align-self: flex-end;
+}
+
+.received{
+    background-color: white;
+  
+}
+
+.mess{
+    border-radius: 10%;
+    margin: 5px;
+    width: 55%;
+       
+}

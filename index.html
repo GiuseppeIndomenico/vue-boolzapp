@@ -64,7 +64,8 @@
                             </div>
                         </div>
                         <div class="left-contacts bg-light">
-                            <div v-for="(contact, index) in contacts" class="rubric" :key="index" @click="setActive(index)" :class="{active: activeIndex === index}">
+                            <div v-for="(contact, index) in contacts" class="rubric" :key="index"
+                                @click="setActive(index)" :class="{active: activeIndex === index}">
                                 <div class="row">
 
                                     <div class="col-10 p-3 d-flex">
@@ -119,9 +120,24 @@
 
 
                         </div>
-                        <div class="main-content">
+                        <div class="main-content d-flex flex-column">
+                            
+                            <div class="sent mess"><h6>ciao</h6>
+                            
+                                <p class="text-end m-0 pe-2">12:00</p>
+                            </div>
 
+                            <div class="received mess"><h6>ciao</h6>
+                            
+                                <p class="text-end m-0 pe-2">12:00</p>
+                            </div>
+
+               
+                           
                         </div>
+
+
+
                         <div class="input-group mb-3 p-1">
                             <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
                                 <i class="fa-regular fa-face-smile"></i>
