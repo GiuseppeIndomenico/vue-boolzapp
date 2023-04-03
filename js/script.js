@@ -174,14 +174,16 @@ createApp({
           ],
         }
       ],
-      activeIndex: ''
-
+      activeIndex: '',
+      activeContact: ''
 
 
     }
   },methods: {
     setActive(index) {
-      this.activeIndex = index
+      this.activeIndex = index;
+      this.activeContact = this.contacts[index];
     }
+    
   }
 }).mount('#app')

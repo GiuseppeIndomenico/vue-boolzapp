@@ -121,17 +121,17 @@ p {
 
 .sent {
     background-color: lightgreen;
-    align-self: flex-end;
+      
 }
 
 .received{
     background-color: white;
-  
+      
 }
 
 .mess{
     border-radius: 15px;
     margin: 5px;
-    width: 55%;
+    width: 100%;
        
 }

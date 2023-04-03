@@ -94,16 +94,16 @@
                         <div class="top-content d-flex align-items-center justify-content-between">
                             <div class="d-flex ps-2 ">
                                 <div class="top-img">
-                                    <img class="img-fluid rounded-5" src="./img/avatar_1.jpg" alt="" srcset="">
+                                    <img class="img-fluid rounded-5" :src="activeContact.avatar"
+                                        :alt="activeContact.name">
                                 </div>
                                 <div class="ps-3">
-                                    <h6 class="m-0">Michele</h6>
-                                    <p class="m-0 fw-semibold">Ultimo accesso oggi alle 12.00</p>
+                                    <h6 class="m-0">{{ activeContact.name }}</h6>
+                                    <p class="m-0 fw-semibold">Ultimo accesso oggi alle {{ activeContact.lastSeen }}</p>
                                 </div>
                             </div>
 
                             <div class="d-flex ">
-
                                 <div class="icons pt-2">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
@@ -115,28 +115,23 @@
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                 </div>
                             </div>
-
-
-
-
-                        </div>
-                        <div class="main-content d-flex flex-column">
-                            
-                            <div class="sent mess"><h6>ciao</h6>
-                            
-                                <p class="text-end m-0 pe-2">12:00</p>
-                            </div>
-
-                            <div class="received mess"><h6>ciao</h6>
-                            
-                                <p class="text-end m-0 pe-2">12:00</p>
-                            </div>
-
-               
-                           
                         </div>
 
+                        <div class="main-content p-3 d-flex align-items-start">
+                            <div v-if="activeContact">
+                                <div v-for="(message, index) in activeContact.messages"
+                                    :class="[message.status, 'mess']" :key="index" class="d-flex">
+                                    <h6>{{ message.message }}</h6>
+                                    <p class="text-end m-0 pe-2">{{ message.date }}</p>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <div class="d-flex align-items-center justify-content-center mt-5">
+                                    <h6 class="received rounded-3 text-center p-5">seleziona un contatto per visualizzare i messaggi!</h6>
 
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="input-group mb-3 p-1">
                             <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
