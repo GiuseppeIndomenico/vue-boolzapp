@@ -117,10 +117,10 @@
                             </div>
                         </div>
 
-                        <div class="main-content p-3 d-flex align-items-start">
+                        <div class="main-content p-3">
                             <div v-if="activeContact">
                                 <div v-for="(message, index) in activeContact.messages"
-                                    :class="[message.status, 'mess']" :key="index" class="d-flex">
+                                    :class="[message.status, 'mess']" :key="index" class="lex">
                                     <h6>{{ message.message }}</h6>
                                     <p class="text-end m-0 pe-2">{{ message.date }}</p>
                                 </div>
