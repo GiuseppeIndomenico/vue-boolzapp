@@ -23,8 +23,7 @@
                     <div class="col-12 col-md-5">
                         <div class="top-left">
                             <div class="top-content d-flex align-items-center justify-content-between">
-                                <div
-                                    class="d-flex mt-1 ps-2 align-items-center justify-content-center">
+                                <div class="d-flex mt-1 ps-2 align-items-center justify-content-center">
 
 
                                     <div class="top-img p-1">
@@ -65,12 +64,12 @@
                             </div>
                         </div>
                         <div class="left-contacts bg-light">
-                            <div v-for="contact in contacts"
-                                class="d-flex border-top pb-2 border bg-light align-items-center justify-content-between">
-                                <div
-                                    class="pt-3 d-flex align-items-center justify-content-center p-2">
+                            <div v-for="contact in contacts" class="rubric">
+                                <div class="row">
+
+                                      <div class="col-10 p-3 d-flex">
                                     <div class="top-img">
-                                        <img class="img-fluid rounded-5" :src="contact.avatar" :alt="contact.name"
+                                        <img class="img-fluid rounded-circle" :src="contact.avatar" :alt="contact.name"
                                             srcset="">
                                     </div>
                                     <div class="ps-2 ">
@@ -78,9 +77,12 @@
                                         <p class="m-0 fw-semibold">Ultimo messaggio inviato</p>
                                     </div>
                                 </div>
+                                <div class="col-2 pt-3">
+                                    <p class="me-2 fw-semibold">12.00</p>
 
-                                <p class="me-2 fw-semibold">12.00</p>
-
+                                </div>
+                                </div>
+                              
                             </div>
 
                         </div>
@@ -88,8 +90,7 @@
 
                     </div>
                     <div class="col-12 col-md-7 border-start border-secondary ps-0">
-                        <div
-                            class="top-content d-flex align-items-center justify-content-between">
+                        <div class="top-content d-flex align-items-center justify-content-between">
                             <div class="d-flex ps-2 ">
                                 <div class="top-img">
                                     <img class="img-fluid rounded-5" src="./img/avatar_1.jpg" alt="" srcset="">
