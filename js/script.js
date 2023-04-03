@@ -173,10 +173,15 @@ createApp({
             }
           ],
         }
-      ]
+      ],
+      activeIndex: ''
 
 
 
+    }
+  },methods: {
+    setActive(index) {
+      this.activeIndex = index
     }
   }
 }).mount('#app')

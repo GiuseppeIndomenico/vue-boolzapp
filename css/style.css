@@ -99,4 +99,11 @@ width: 100%;
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
 }
+.rubric :hover{
+    background-color: var(--sec-color);
+}
+
+.active{
+    background-color: lightgrey;
+}
 
