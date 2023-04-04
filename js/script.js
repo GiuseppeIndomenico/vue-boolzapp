@@ -1,4 +1,6 @@
-const { createApp } = Vue
+const dt= luxon.DateTime;
+
+const { createApp } = Vue;
 
 createApp({
   data() {
@@ -197,8 +199,24 @@ createApp({
         contact.visible = false;
       });
     },
-    sendMessage(){
-
+    sendMessage() {
+      const newMessageText = {
+        message: this.newMessageText,
+        status: 'sent',
+        date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
+      };
+      this.contacts[this.activeIndex].messages.push(newMessageText);
+      this.newMessageText = '';
+     
+      const msgResponse = {
+      message: 'ciaooo!',
+      status: 'received',
+      date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
+    };
+    setTimeout(()=>{
+    this.contacts[this.activeIndex].messages.push(msgResponse);
+    },2000)
+    
     }
 
 
