@@ -70,18 +70,17 @@
 
                                     <div class="col-10 p-3 d-flex">
                                         <div class="top-img">
-                                            <img class="img-fluid rounded-circle" :src="contact.avatar"
-                                                :alt="contact.name" srcset="">
+                                            <img class="img-fluid rounded-circle" :src="contact.avatar" :alt="contact.name" srcset="">
                                         </div>
                                         <div class="ps-2 ">
                                             <h6 class="">{{contact.name}}</h6>
-                                            <p class="m-0 fw-semibold">Ultimo messaggio inviato</p>
+                                            <p class="m-0 fw-semibold">{{contact.messages[contact.messages.length - 1].message}}</p>
                                         </div>
                                     </div>
-                                    <div class="col-2 pt-3">
-                                        <p class="me-2 fw-semibold">12.00</p>
-
+                                    <div class="col-2 pt-3 ">
+                                        <p class="me-2 fw-semibold">{{contact.messages[contact.messages.length - 1].date}}</p>
                                     </div>
+                                    
                                 </div>
 
                             </div>
@@ -98,8 +97,7 @@
                                         :alt="activeContact.name">
                                 </div>
                                 <div class="ps-3">
-                                    <h6 class="m-0">{{ activeContact.name }}</h6>
-                                    <p class="m-0 fw-semibold">Ultimo accesso oggi alle {{ activeContact.lastSeen }}</p>
+                                    <h6 class="mt-2">{{ activeContact.name }}</h6>
                                 </div>
                             </div>
 
@@ -117,12 +115,12 @@
                             </div>
                         </div>
 
-                        <div class="main-content p-3">
+                        <div class="main-content d-flex flex-column align-items-end justify-content-start p-3">
                             <div v-if="activeContact">
                                 <div v-for="(message, index) in activeContact.messages"
-                                    :class="[message.status, 'mess']" :key="index" class="lex">
+                                    :class="[message.status, 'mess']" :key="index">
                                     <h6>{{ message.message }}</h6>
-                                    <p class="text-end m-0 pe-2">{{ message.date }}</p>
+                                    <p class="text-end p-2">{{ message.date }}</p>
                                 </div>
                             </div>
                             <div v-else>
