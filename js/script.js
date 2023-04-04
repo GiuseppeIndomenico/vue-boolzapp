@@ -207,17 +207,37 @@ createApp({
       };
       this.contacts[this.activeIndex].messages.push(newMessageText);
       this.newMessageText = '';
-     
-      const msgResponse = {
-      message: 'ciaooo!',
-      status: 'received',
-      date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
-    };
-    setTimeout(()=>{
-    this.contacts[this.activeIndex].messages.push(msgResponse);
-    },2000)
     
+      const possibleResponses = [
+        'Ciao!',
+        'Sto scrivendo del codice, ti chiamo io quando finisco',
+        'oggi sono troppo pigro per alzarmi',
+        'No, mi dispiace.',
+        'Grazie mille!',
+        'Vediamoci uno di questi giorni!',
+        "si! nonvedo l'ora!",
+        'Ma i 10 euro che ti ho prestato?',
+        'Si!',
+        'No',
+        'Nooooooooooooooooooooooooooo',
+        'che brutte notizia!',
+        'Quanto costa?',
+        'cu mancia fa muddichi',
+        'Scusa',
+        'oggi ti trovo in forma!',
+        'Sappi che ho gambizzato per molto meno!'
+      ];
+      const randomIndex = Math.floor(Math.random() * possibleResponses.length);
+      const msgResponse = {
+        message: possibleResponses[randomIndex],
+        status: 'received',
+        date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
+      };
+      setTimeout(() => {
+        this.contacts[this.activeIndex].messages.push(msgResponse);
+      }, 2000);
     }
+    
 
 
   }
