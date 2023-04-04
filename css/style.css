@@ -136,5 +136,10 @@ p {
     border-radius: 15px;
     margin: 5px;
     width: 40%;
-       
+    
 }
+
+.col-12.col-md-7.border-start.border-secondary.ps-0 {
+    max-height: 100%;
+    overflow: hidden;
+  }

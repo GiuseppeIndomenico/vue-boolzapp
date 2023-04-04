@@ -225,7 +225,17 @@ createApp({
         'cu mancia fa muddichi',
         'Scusa',
         'oggi ti trovo in forma!',
-        'Sappi che ho gambizzato per molto meno!'
+        'Sappi che ho gambizzato per molto meno!',
+        'lo so',
+        'come ti permetti!?',
+        'Ma tu lo sai chi sono io!?',
+        '...',
+        'eeeh! non ci sono più le mezze stagioni',
+        'Signora mia! Qui è tutto un magna magna!',
+        'evviva!',
+        'wow',
+        'non ci posso credere!',
+        'mio zio terrapiattista mi ha detto il contrario!'
       ];
       const randomIndex = Math.floor(Math.random() * possibleResponses.length);
       const msgResponse = {
