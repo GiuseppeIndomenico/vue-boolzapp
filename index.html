@@ -20,7 +20,7 @@
         <div class="wrapper">
             <main class="shadow">
                 <div class="row h-100">
-                    <div class="col-12 col-md-5">
+                    <div class="col-12 col-md-5 h-100 left-side">
                         <div class="top-left">
                             <div class="top-content d-flex align-items-center justify-content-between">
                                 <div class="d-flex mt-1 ps-2 align-items-center justify-content-center">
@@ -57,12 +57,16 @@
                                 </div>
                             </div>
                             <div class="input-group pt-1">
-                                <span class="input-group-text rounded-0 text-secondary" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                <input type="text" class="form-control rounded-0" placeholder="Cerca" aria-describedby="basic-addon1" v-model="searchText" @input="filterContacts">
-                              </div>
+                                <span class="input-group-text rounded-0 text-secondary" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control rounded-0" placeholder="Cerca"
+                                    aria-describedby="basic-addon1" v-model="searchText" @input="filterContacts">
+                            </div>
                         </div>
                         <div class="left-contacts bg-light">
-                            <div  v-for="(contact, index) in contacts" class="rubric" :key="index" v-show="contact.visible" @click="setActive(index)" :class="{active: activeIndex === index}">
+                            <div v-for="(contact, index) in contacts" class="rubric" :key="index"
+                                v-show="contact.visible" @click="setActive(index)"
+                                :class="{active: activeIndex === index}">
                                 <div class="row">
 
                                     <div class="col-10 p-3 d-flex">
@@ -115,19 +119,20 @@
                             </div>
                         </div>
 
-                        <div class="main-content d-flex flex-column align-items-end justify-content-start p-3">
-                            <div v-if="activeContact">
-                                <div v-for="(message, index) in activeContact.messages"
-                                    :class="[message.status, 'mess']" :key="index">
-                                    <h6>{{ message.message }}</h6>
-                                    <p class="text-end p-2">{{ message.date }}</p>
+                        <div class="main-content p-3 d-flex flex-column align-items-start">
+                            <div v-for="(message, index) in activeContact.messages" :class="[message.status, 'mess']"
+                                :key="index">
+                                <div v-if="activeContact">
+                                    <span class="fw-semibold  m-2 pm-2">{{ message.message }}</span>
+                                    <p class="text-end m-0 p-2">{{ message.date }}</p>
                                 </div>
-                            </div>
-                            <div v-else>
-                                <div class="d-flex align-items-center justify-content-center mt-5">
-                                    <h6 class="received rounded-3 text-center p-5">seleziona un contatto per
-                                        visualizzare i messaggi!</h6>
-
+                                <div v-else>
+                                    <div class="d-flex align-items-center justify-content-center mt-5">
+                                        <h6 class=" w-75 bg-light-subtle rounded-3 text-center p-5">
+                                            seleziona un contatto per visualizzare i messaggi!
+                                        </h6>
+    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -136,9 +141,11 @@
                             <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
                                 <i class="fa-regular fa-face-smile"></i>
                             </button>
-                            <input v-model.trim="newMessageText" type="text" class="form-control pb-1" placeholder="Scrivi Messaggio..."
-                                aria-label="Example text with two button addons" @keyup.enter="sendMessage">
-                            <button @click="sendMessage" class="btn btn-outline-secondary rounded-0 border-0" type="button">
+                            <input v-model.trim="newMessageText" type="text" class="form-control pb-1"
+                                placeholder="Scrivi Messaggio..." aria-label="Example text with two button addons"
+                                @keyup.enter="sendMessage">
+                            <button @click="sendMessage" class="btn btn-outline-secondary rounded-0 border-0"
+                                type="button">
                                 <i class="fa-solid fa-paper-plane"></i>
                             </button>
                         </div>

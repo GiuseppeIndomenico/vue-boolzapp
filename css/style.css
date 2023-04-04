@@ -35,7 +35,7 @@ main {
     position: absolute;
     top: 3%;
     left: 12%;
-    height: 90vh;
+    height: 780px;
     
 }
 
@@ -92,19 +92,14 @@ p {
     height: calc(100% - 175px);
     overflow-y: auto;
     width: 100%;
+    background-color: var(--sec-color);
 }
 
 .border-top {
     border-bottom: grey;
 }
 
-.main-content {
-    width: 100%;
-    height: calc(100% - 100px);
-    background-image: url(../img/mine.jpg);
-    overflow-y: auto;
-   
-}
+
 
 .rubric :hover {
     background-color: var(--sec-color);
@@ -117,12 +112,12 @@ p {
 .mess h6 {
     font-size: 14px;
     font-size: small;
-    padding: 10px;
+    padding: 5px;
 }
 
 .sent {
     background-color: lightgreen;
-    
+    align-self: flex-end;    
 }
 
 .received{
@@ -130,9 +125,16 @@ p {
       
 }
 
+.main-content {
+    width: 100%;
+    height: calc(100% - 100px);
+    background-image: url(../img/mine.jpg);
+    overflow-y: auto;
+}
+
 .mess{
     border-radius: 15px;
     margin: 5px;
-    width: 100%;
+    width: 40%;
        
 }
