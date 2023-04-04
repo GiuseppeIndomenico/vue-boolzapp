@@ -1,4 +1,4 @@
-const dt= luxon.DateTime;
+const dt = luxon.DateTime;
 
 const { createApp } = Vue;
 
@@ -179,7 +179,7 @@ createApp({
       activeIndex: '',
       activeContact: '',
       searchText: '',
-      newMessageText:''
+      newMessageText: ''
     }
   }, methods: {
     setActive(index) {
@@ -192,7 +192,7 @@ createApp({
       }).forEach(contact => {
         contact.visible = true;
       });
-      
+
       this.contacts.filter(contact => {
         return !contact.name.toLowerCase().includes(this.searchText.toLowerCase());
       }).forEach(contact => {
@@ -207,7 +207,7 @@ createApp({
       };
       this.contacts[this.activeIndex].messages.push(newMessageText);
       this.newMessageText = '';
-    
+
       const possibleResponses = [
         'Ciao!',
         'Sto scrivendo del codice, ti chiamo io quando finisco',
@@ -235,7 +235,8 @@ createApp({
         'evviva!',
         'wow',
         'non ci posso credere!',
-        'mio zio terrapiattista mi ha detto il contrario!'
+        'mio zio terrapiattista mi ha detto il contrario!',
+        'come scusa!?'
       ];
       const randomIndex = Math.floor(Math.random() * possibleResponses.length);
       const msgResponse = {
@@ -247,7 +248,7 @@ createApp({
         this.contacts[this.activeIndex].messages.push(msgResponse);
       }, 2000);
     }
-    
+
 
 
   }

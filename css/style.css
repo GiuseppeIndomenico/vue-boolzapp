@@ -33,10 +33,10 @@ main {
     background-color: lightgrey;
     width: 80%;
     position: absolute;
-    top: 3%;
+    top: 8%;
     left: 12%;
-    height: 780px;
-    
+    height: 700px;
+
 }
 
 .top-content {
@@ -88,12 +88,15 @@ p {
 
 }
 
-.left-contact {
+.left-contacts {
     height: calc(100% - 175px);
     overflow-y: auto;
     width: 100%;
     background-color: var(--sec-color);
+    overflow-x: hidden;
+    
 }
+
 
 .border-top {
     border-bottom: grey;
@@ -117,12 +120,12 @@ p {
 
 .sent {
     background-color: lightgreen;
-    align-self: flex-end;    
+    align-self: flex-end;
 }
 
-.received{
+.received {
     background-color: white;
-      
+
 }
 
 .main-content {
@@ -132,14 +135,14 @@ p {
     overflow-y: auto;
 }
 
-.mess{
+.mess {
     border-radius: 15px;
     margin: 5px;
     width: 40%;
-    
+
 }
 
-.col-12.col-md-7.border-start.border-secondary.ps-0 {
+.height {
     max-height: 100%;
     overflow: hidden;
-  }
+}
