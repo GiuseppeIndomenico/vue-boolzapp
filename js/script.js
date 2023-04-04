@@ -215,10 +215,10 @@ createApp({
         'No, mi dispiace.',
         'Grazie mille!',
         'Vediamoci uno di questi giorni!',
-        "si! nonvedo l'ora!",
+        "si! non vedo l'ora!",
         'Ma i 10 euro che ti ho prestato?',
         'Si!',
-        'No',
+        'No!',
         'Nooooooooooooooooooooooooooo',
         'che brutte notizia!',
         'Quanto costa?',
@@ -235,7 +235,7 @@ createApp({
         'evviva!',
         'wow',
         'non ci posso credere!',
-        'mio zio terrapiattista mi ha detto il contrario!',
+        'mio zio terra-piattista mi ha detto il contrario!',
         'come scusa!?'
       ];
       const randomIndex = Math.floor(Math.random() * possibleResponses.length);
