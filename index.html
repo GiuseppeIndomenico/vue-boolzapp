@@ -136,9 +136,9 @@
                             <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
                                 <i class="fa-regular fa-face-smile"></i>
                             </button>
-                            <input type="text" class="form-control pb-1" placeholder="Scrivi Messaggio..."
-                                aria-label="Example text with two button addons">
-                            <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
+                            <input v-model.trim="newMessageText" type="text" class="form-control pb-1" placeholder="Scrivi Messaggio..."
+                                aria-label="Example text with two button addons" @keyup.enter="sendMessage">
+                            <button @click="sendMessage" class="btn btn-outline-secondary rounded-0 border-0" type="button">
                                 <i class="fa-solid fa-paper-plane"></i>
                             </button>
                         </div>

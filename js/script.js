@@ -176,7 +176,8 @@ createApp({
       ],
       activeIndex: '',
       activeContact: '',
-      searchText: ''
+      searchText: '',
+      newMessageText:''
     }
   }, methods: {
     setActive(index) {
@@ -184,13 +185,20 @@ createApp({
       this.activeContact = this.contacts[index];
     },
     filterContacts() {
-      this.contacts.forEach(contact => {
-        if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
-          contact.visible = true;
-        } else {
-          contact.visible = false;
-        }
+      this.contacts.filter(contact => {
+        return contact.name.toLowerCase().includes(this.searchText.toLowerCase());
+      }).forEach(contact => {
+        contact.visible = true;
       });
+      
+      this.contacts.filter(contact => {
+        return !contact.name.toLowerCase().includes(this.searchText.toLowerCase());
+      }).forEach(contact => {
+        contact.visible = false;
+      });
+    },
+    sendMessage(){
+
     }
 
 
