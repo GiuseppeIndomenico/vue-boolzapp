@@ -175,15 +175,24 @@ createApp({
         }
       ],
       activeIndex: '',
-      activeContact: ''
-
-
+      activeContact: '',
+      searchText: ''
     }
-  },methods: {
+  }, methods: {
     setActive(index) {
       this.activeIndex = index;
       this.activeContact = this.contacts[index];
+    },
+    filterContacts() {
+      this.contacts.forEach(contact => {
+        if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+          contact.visible = true;
+        } else {
+          contact.visible = false;
+        }
+      });
     }
-    
+
+
   }
 }).mount('#app')

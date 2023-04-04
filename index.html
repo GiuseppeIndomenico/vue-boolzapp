@@ -57,30 +57,30 @@
                                 </div>
                             </div>
                             <div class="input-group pt-1">
-                                <span class="input-group-text rounded-0 text-secondary" id="basic-addon1"><i
-                                        class="fa-solid fa-magnifying-glass"></i></span>
-                                <input type="text" class="form-control rounded-0" placeholder="Cerca"
-                                    aria-describedby="basic-addon1">
-                            </div>
+                                <span class="input-group-text rounded-0 text-secondary" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control rounded-0" placeholder="Cerca" aria-describedby="basic-addon1" v-model="searchText" @input="filterContacts">
+                              </div>
                         </div>
                         <div class="left-contacts bg-light">
-                            <div v-for="(contact, index) in contacts" class="rubric" :key="index"
-                                @click="setActive(index)" :class="{active: activeIndex === index}">
+                            <div  v-for="(contact, index) in contacts" class="rubric" :key="index" v-show="contact.visible" @click="setActive(index)" :class="{active: activeIndex === index}">
                                 <div class="row">
 
                                     <div class="col-10 p-3 d-flex">
                                         <div class="top-img">
-                                            <img class="img-fluid rounded-circle" :src="contact.avatar" :alt="contact.name" srcset="">
+                                            <img class="img-fluid rounded-circle" :src="contact.avatar"
+                                                :alt="contact.name" srcset="">
                                         </div>
                                         <div class="ps-2 ">
                                             <h6 class="">{{contact.name}}</h6>
-                                            <p class="m-0 fw-semibold">{{contact.messages[contact.messages.length - 1].message}}</p>
+                                            <p class="m-0 fw-semibold">{{contact.messages[contact.messages.length -
+                                                1].message}}</p>
                                         </div>
                                     </div>
                                     <div class="col-2 pt-3 ">
-                                        <p class="me-2 fw-semibold">{{contact.messages[contact.messages.length - 1].date}}</p>
+                                        <p class="me-2 fw-semibold">{{contact.messages[contact.messages.length -
+                                            1].date}}</p>
                                     </div>
-                                    
+
                                 </div>
 
                             </div>
@@ -125,7 +125,8 @@
                             </div>
                             <div v-else>
                                 <div class="d-flex align-items-center justify-content-center mt-5">
-                                    <h6 class="received rounded-3 text-center p-5">seleziona un contatto per visualizzare i messaggi!</h6>
+                                    <h6 class="received rounded-3 text-center p-5">seleziona un contatto per
+                                        visualizzare i messaggi!</h6>
 
                                 </div>
                             </div>
