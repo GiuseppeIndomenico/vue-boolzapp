@@ -20,9 +20,11 @@
         <div class="wrapper">
             <main class="shadow">
                 <div class="row h-100">
-                    <div :class="visible ? 'd-none d-sm-block' : '' " class="col-12 col-sm-5 h-100 left-side height p-0">
+                    <div :class="visible ? 'd-none d-sm-block' : '' "
+                        class="col-12 col-sm-5 h-100 left-side height p-0">
                         <div class="top-left">
-                            <div class="top-content d-flex align-items-center justify-content-between">
+                            <div
+                                class="top-content d-flex align-items-center justify-content-between m-0 border border-end">
                                 <div class="d-flex mt-1 ps-2 align-items-center justify-content-center">
 
 
@@ -33,7 +35,7 @@
                                         <h6 class="m-0 fw">Romualdo</h6>
                                     </div>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex pt-3">
 
                                     <div class="icons">
                                         <img src="./img/status-icon.svg" alt="" srcset="">
@@ -93,15 +95,19 @@
 
 
                     </div>
-                    <div :class="visible ? 'd-block': 'd-none' " class="col-12 col-sm-7 border-start border-secondary p-0 height d-sm-block">
-                        <div class="top-content d-flex align-items-center justify-content-between mt-2">
-                            <div class="d-flex ps-2 ">
-                                <div class="top-img">
+                    <div :class="visible ? 'd-block': 'd-none' " class="col-12 col-sm-7 p-0 height d-sm-block">
+                        <div class="top-content d-flex align-items-center justify-content-between">
+                            <div class="d-flex ps-2 align-items-center ">
+                                <button @click="goBack" class=" btn p-1 btn-outline-secondary border-0 d-sm-none">
+                                    <i class="fa-solid fa-arrow-left"></i>
+
+                                </button>
+
+                                <div class="top-img ps-1">
                                     <img class="img-fluid rounded-5" :src="activeContact.avatar"
                                         :alt="activeContact.name">
                                 </div>
                                 <div class="ps-3">
-                                    <i @click="goBack" class="fa-solid fa-arrow-left d-sm-none"></i>
                                     <h6 class="mt-2">{{ activeContact.name }}</h6>
                                 </div>
                             </div>
@@ -112,7 +118,7 @@
                                 </div>
 
                                 <div class="icons d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-paperclip d-none d-sm-block"></i>
+                                    <i class="fa-solid fa-paperclip"></i>
                                 </div>
                                 <div class="icons d-flex align-items-center justify-content-center">
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -122,20 +128,23 @@
 
                         <div class="main-content p-3 d-flex flex-column align-items-start">
                             <div v-for="(message, index) in activeContact.messages" :class="[message.status, 'mess']"
-                                :key="index" ref="activeContact">
-                                <div v-if="activeContact">
-                                    <span class="fw-semibold  m-2 pm-2">{{ message.message }}</span>
-                                    <p class="text-end m-0 p-2">{{ message.date }}</p>
+                            :key="index" ref="activeContact">
+                            <div v-if="activeContact" class="position-relative">
+                              <div class="d-flex align-items-center justify-content-between">
+                                <span class="fw-semibold m-2 pm-2">{{ message.message }}</span>
+                                <button @click="showWindow(index)" class="btn border-0 btnCancel">
+                                  <i class="fa-solid fa-angle-down"></i>
+                                </button>
+                              </div>
+                              <div v-if="activeMessageIndex === index && show">
+                                <div class="cancel-window">
+                                  <button class="btn btn-danger">cancella</button>
                                 </div>
-                                <div v-else>
-                                    <div class="d-flex align-items-center justify-content-center mt-5">
-                                        <h6 class=" w-75 bg-light-subtle rounded-3 text-center p-5">
-                                            seleziona un contatto per visualizzare i messaggi!
-                                        </h6>
-    
-                                    </div>
-                                </div>
+                              </div>
+                              <p class="text-end m-0 p-2">{{ message.date }}</p>
                             </div>
+                          </div>
+                          
                         </div>
 
                         <div class="input-group mb-3 p-1">
@@ -161,7 +170,10 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.3/build/global/luxon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js" integrity="sha512-DJ2+sosWB5FnZAIeCWAHu2gxQ7Gi438oOZLcBQSOrW8gD0s7LIXDv/5RW76B3FcljF40BXnfqNIo6Dhp7dFHJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script src="./js/utility.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"
+        integrity="sha512-DJ2+sosWB5FnZAIeCWAHu2gxQ7Gi438oOZLcBQSOrW8gD0s7LIXDv/5RW76B3FcljF40BXnfqNIo6Dhp7dFHJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/utility.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

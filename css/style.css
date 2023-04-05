@@ -42,7 +42,6 @@ main {
 .top-content {
     height: 50px;
     width: 100%;
-    margin-top: 8px;
     background-color: lightgray;
 
 }
@@ -131,7 +130,7 @@ p {
 
 .main-content {
     width: 100%;
-    height: calc(100% - 100px);
+    height: calc(100% - 94px);
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
 }
@@ -143,9 +142,23 @@ p {
     padding:5px
 
 }
+.btnCancel{
+    opacity: 0;
+    transition: all 0.25s;
+}
+
+.mess:hover .btnCancel{
+    opacity: 1;
+}
 
 .height {
     max-height: 100%;
     overflow: hidden;
     background-color: lightgray;
+}
+
+.cancel-window{
+    position: absolute;
+    top: 50px;
+    right: 0;
 }

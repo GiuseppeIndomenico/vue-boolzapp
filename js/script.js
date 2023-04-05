@@ -181,6 +181,8 @@ createApp({
       searchText: '',
       newMessageText: '',
       visible: false,
+      show: false,
+      activeMessageIndex: null
     }
   }, methods: {
     setActive(index) {
@@ -211,7 +213,7 @@ createApp({
         };
         this.contacts[this.activeIndex].messages.push(newMessage);
         this.newMessageText = '';
-    
+
         const possibleResponses = [
           'Ciao!',
           'Sto scrivendo del codice, ti chiamo io quando finisco',
@@ -224,7 +226,7 @@ createApp({
           'Si!',
           'No!',
           'Nooooooooooooooooooooooooooo',
-          'che brutte notizia!',
+          'che brutta notizia!',
           'Quanto costa?',
           'cu mancia fa muddichi',
           'Scusa',
@@ -240,30 +242,38 @@ createApp({
           'wow',
           'non ci posso credere!',
           'mio zio terra-piattista mi ha detto il contrario!',
-          'come scusa!?'
+          'come scusa!?',
+          "con un po' di omeopatia passa tutto",
+          'eeeeh! si stava meglio quando si stava peggio',
+          'non sono più giovane come quando avevo 80 anni'
         ];
-    
+
         const randomIndex = Math.floor(Math.random() * possibleResponses.length);
         const msgResponse = {
           message: possibleResponses[randomIndex],
           status: 'received',
           date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
         };
-    
+
         setTimeout(() => {
           this.contacts[this.activeIndex].messages.push(msgResponse);
           this.$nextTick(() => {
             const lastMessage = this.$refs.activeContact[this.$refs.activeContact.length - 1];
             lastMessage.scrollIntoView();
           });
-          
+
         }, 1500);
-        
+
       }
     },
     goBack() {
       this.visible = false
+    },
+    showWindow(index) {
+      this.activeMessageIndex = index;
+      console.log(index);
+      show= true
     }
-    
+
   }
 }).mount('#app')
