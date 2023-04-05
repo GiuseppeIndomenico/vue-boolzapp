@@ -184,7 +184,7 @@ createApp({
     }
   }, methods: {
     setActive(index) {
-      this.visible = true;      
+      this.visible = true;
       this.activeIndex = index;
       this.activeContact = this.contacts[index];
     },
@@ -202,17 +202,16 @@ createApp({
       });
     },
     sendMessage() {
-      newMessageText = this.newMessageText.trim();
+      const newMessageText = this.newMessageText.trim();
       if (newMessageText !== '') {
-        const newMessageText = {
+        const newMessage = {
           message: this.newMessageText,
           status: 'sent',
           date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
         };
-        this.contacts[this.activeIndex].messages.push(newMessageText);
+        this.contacts[this.activeIndex].messages.push(newMessage);
         this.newMessageText = '';
-
-
+    
         const possibleResponses = [
           'Ciao!',
           'Sto scrivendo del codice, ti chiamo io quando finisco',
@@ -243,22 +242,28 @@ createApp({
           'mio zio terra-piattista mi ha detto il contrario!',
           'come scusa!?'
         ];
+    
         const randomIndex = Math.floor(Math.random() * possibleResponses.length);
         const msgResponse = {
           message: possibleResponses[randomIndex],
           status: 'received',
-          date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
+          date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
         };
+    
         setTimeout(() => {
           this.contacts[this.activeIndex].messages.push(msgResponse);
+          this.$nextTick(() => {
+            const lastMessage = this.$refs.activeContact[this.$refs.activeContact.length - 1];
+            lastMessage.scrollIntoView();
+          });
+          
         }, 1500);
+        
       }
     },
-    goBack(){
+    goBack() {
       this.visible = false
     }
-
-
-
+    
   }
 }).mount('#app')
