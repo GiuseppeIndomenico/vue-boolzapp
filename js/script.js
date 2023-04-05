@@ -182,7 +182,7 @@ createApp({
       newMessageText: '',
       visible: false,
       show: false,
-      activeMessageIndex: null
+      activeMessageIndex: ''
     }
   }, methods: {
     setActive(index) {
