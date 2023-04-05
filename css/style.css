@@ -33,9 +33,9 @@ main {
     background-color: lightgrey;
     width: 80%;
     position: absolute;
-    top: 8%;
+    top: 5%;
     left: 12%;
-    height: 700px;
+    height: 80vh;
 
 }
 

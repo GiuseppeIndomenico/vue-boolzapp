@@ -20,7 +20,7 @@
         <div class="wrapper">
             <main class="shadow">
                 <div class="row h-100">
-                    <div class="col-12 col-md-5 h-100 left-side height pe-0">
+                    <div :class="visible ? 'd-none d-sm-block' : '' " class="col-12 col-sm-5 h-100 left-side height pe-0">
                         <div class="top-left">
                             <div class="top-content d-flex align-items-center justify-content-between">
                                 <div class="d-flex mt-1 ps-2 align-items-center justify-content-center">
@@ -93,7 +93,7 @@
 
 
                     </div>
-                    <div class="col-12 col-md-7 border-start border-secondary ps-0 height">
+                    <div :class="visible ? 'd-block': 'd-none' " class="col-12 col-sm-7 border-start border-secondary ps-0 height d-sm-block">
                         <div class="top-content d-flex align-items-center justify-content-between">
                             <div class="d-flex ps-2 ">
                                 <div class="top-img">
@@ -101,6 +101,7 @@
                                         :alt="activeContact.name">
                                 </div>
                                 <div class="ps-3">
+                                    <i @click="goBack" class="fa-solid fa-arrow-left d-sm-none"></i>
                                     <h6 class="mt-2">{{ activeContact.name }}</h6>
                                 </div>
                             </div>
@@ -141,7 +142,7 @@
                             <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
                                 <i class="fa-regular fa-face-smile"></i>
                             </button>
-                            <input v-model.trim="newMessageText" type="text" class="form-control pb-1"
+                            <input v-model="newMessageText" type="text" class="form-control pb-1"
                                 placeholder="Scrivi Messaggio..." aria-label="Example text with two button addons"
                                 @keyup.enter="sendMessage">
                             <button @click="sendMessage" class="btn btn-outline-secondary rounded-0 border-0"

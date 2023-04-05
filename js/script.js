@@ -179,10 +179,12 @@ createApp({
       activeIndex: '',
       activeContact: '',
       searchText: '',
-      newMessageText: ''
+      newMessageText: '',
+      visible: false,
     }
   }, methods: {
     setActive(index) {
+      this.visible = true;      
       this.activeIndex = index;
       this.activeContact = this.contacts[index];
     },
@@ -200,53 +202,60 @@ createApp({
       });
     },
     sendMessage() {
-      const newMessageText = {
-        message: this.newMessageText,
-        status: 'sent',
-        date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
-      };
-      this.contacts[this.activeIndex].messages.push(newMessageText);
-      this.newMessageText = '';
+      newMessageText = this.newMessageText.trim();
+      if (newMessageText !== '') {
+        const newMessageText = {
+          message: this.newMessageText,
+          status: 'sent',
+          date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
+        };
+        this.contacts[this.activeIndex].messages.push(newMessageText);
+        this.newMessageText = '';
 
-      const possibleResponses = [
-        'Ciao!',
-        'Sto scrivendo del codice, ti chiamo io quando finisco',
-        'oggi sono troppo pigro per alzarmi',
-        'No, mi dispiace.',
-        'Grazie mille!',
-        'Vediamoci uno di questi giorni!',
-        "si! non vedo l'ora!",
-        'Ma i 10 euro che ti ho prestato?',
-        'Si!',
-        'No!',
-        'Nooooooooooooooooooooooooooo',
-        'che brutte notizia!',
-        'Quanto costa?',
-        'cu mancia fa muddichi',
-        'Scusa',
-        'oggi ti trovo in forma!',
-        'Sappi che ho gambizzato per molto meno!',
-        'lo so',
-        'come ti permetti!?',
-        'Ma tu lo sai chi sono io!?',
-        '...',
-        'eeeh! non ci sono più le mezze stagioni',
-        'Signora mia! Qui è tutto un magna magna!',
-        'evviva!',
-        'wow',
-        'non ci posso credere!',
-        'mio zio terra-piattista mi ha detto il contrario!',
-        'come scusa!?'
-      ];
-      const randomIndex = Math.floor(Math.random() * possibleResponses.length);
-      const msgResponse = {
-        message: possibleResponses[randomIndex],
-        status: 'received',
-        date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
-      };
-      setTimeout(() => {
-        this.contacts[this.activeIndex].messages.push(msgResponse);
-      }, 2000);
+
+        const possibleResponses = [
+          'Ciao!',
+          'Sto scrivendo del codice, ti chiamo io quando finisco',
+          'oggi sono troppo pigro per alzarmi',
+          'No, mi dispiace.',
+          'Grazie mille!',
+          'Vediamoci uno di questi giorni!',
+          "si! non vedo l'ora!",
+          'Ma i 10 euro che ti ho prestato?',
+          'Si!',
+          'No!',
+          'Nooooooooooooooooooooooooooo',
+          'che brutte notizia!',
+          'Quanto costa?',
+          'cu mancia fa muddichi',
+          'Scusa',
+          'oggi ti trovo in forma!',
+          'Sappi che ho gambizzato per molto meno!',
+          'lo so',
+          'come ti permetti!?',
+          'Ma tu lo sai chi sono io!?',
+          '...',
+          'eeeh! non ci sono più le mezze stagioni',
+          'Signora mia! Qui è tutto un magna magna!',
+          'evviva!',
+          'wow',
+          'non ci posso credere!',
+          'mio zio terra-piattista mi ha detto il contrario!',
+          'come scusa!?'
+        ];
+        const randomIndex = Math.floor(Math.random() * possibleResponses.length);
+        const msgResponse = {
+          message: possibleResponses[randomIndex],
+          status: 'received',
+          date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS)
+        };
+        setTimeout(() => {
+          this.contacts[this.activeIndex].messages.push(msgResponse);
+        }, 1500);
+      }
+    },
+    goBack(){
+      this.visible = false
     }
 
 
