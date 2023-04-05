@@ -271,9 +271,16 @@ createApp({
     },
     showWindow(index) {
       this.activeMessageIndex = index;
-      console.log(index);
-      show= true
+      this.show = !this.show;
+    },
+    cancelMsg() {
+      if (this.activeContact.messages.length > 1) {
+        this.activeContact.messages.splice(this.activeMessageIndex, 1);
+      } else if (this.activeContact.messages.length === 1) {
+        this.activeContact.messages = [{ message: "Non ci sono nuovi messaggi", status: "received", date: "" }];
+      }
     }
+    
 
   }
 }).mount('#app')

@@ -138,7 +138,7 @@
                               </div>
                               <div v-if="activeMessageIndex === index && show">
                                 <div class="cancel-window">
-                                  <button class="btn btn-danger">cancella</button>
+                                  <button @click="cancelMsg" class="btn btn-danger">cancella</button>
                                 </div>
                               </div>
                               <p class="text-end m-0 p-2">{{ message.date }}</p>
