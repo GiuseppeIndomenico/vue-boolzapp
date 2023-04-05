@@ -43,6 +43,7 @@ main {
     height: 50px;
     width: 100%;
     margin-top: 8px;
+    background-color: lightgray;
 
 }
 
@@ -146,4 +147,5 @@ p {
 .height {
     max-height: 100%;
     overflow: hidden;
+    background-color: lightgray;
 }
