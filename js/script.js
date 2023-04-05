@@ -206,6 +206,12 @@ createApp({
     sendMessage() {
       const newMessageText = this.newMessageText.trim();
       if (newMessageText !== '') {
+        // Cancella la notifica "Non ci sono nuovi messaggi" se presente
+        if (this.activeContact.messages.length === 1 && this.activeContact.messages[0].message === 'Non ci sono nuovi messaggi') {
+          this.activeContact.messages = [];
+        }
+
+        // Aggiunge il nuovo messaggio
         const newMessage = {
           message: this.newMessageText,
           status: 'sent',
@@ -214,8 +220,7 @@ createApp({
         this.contacts[this.activeIndex].messages.push(newMessage);
         this.newMessageText = '';
 
-        const possibleResponses = [
-          'Ciao!',
+        const possibleResponses = ['Ciao!',
           'Sto scrivendo del codice, ti chiamo io quando finisco',
           'oggi sono troppo pigro per alzarmi',
           'No, mi dispiace.',
@@ -245,9 +250,7 @@ createApp({
           'come scusa!?',
           "con un po' di omeopatia passa tutto",
           'eeeeh! si stava meglio quando si stava peggio',
-          'non sono più giovane come quando avevo 80 anni'
-        ];
-
+          'non sono più giovane come quando avevo 80 anni'];
         const randomIndex = Math.floor(Math.random() * possibleResponses.length);
         const msgResponse = {
           message: possibleResponses[randomIndex],
@@ -261,9 +264,7 @@ createApp({
             const lastMessage = this.$refs.activeContact[this.$refs.activeContact.length - 1];
             lastMessage.scrollIntoView();
           });
-
         }, 1500);
-
       }
     },
     goBack() {
@@ -271,16 +272,18 @@ createApp({
     },
     showWindow(index) {
       this.activeMessageIndex = index;
-      this.show = !this.show;
+
+      this.show = !this.show
     },
     cancelMsg() {
       if (this.activeContact.messages.length > 1) {
         this.activeContact.messages.splice(this.activeMessageIndex, 1);
       } else if (this.activeContact.messages.length === 1) {
-        this.activeContact.messages = [{ message: "Non ci sono nuovi messaggi", status: "received", date: "" }];
+        this.activeContact.messages = [{ message: "Non ci sono nuovi messaggi", status: "nothing", date: "" }];
       }
+      this.show = false
     }
-    
+
 
   }
 }).mount('#app')
