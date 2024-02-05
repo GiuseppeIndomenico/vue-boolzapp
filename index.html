@@ -128,26 +128,26 @@
 
                         <div class="main-content p-3 d-flex flex-column align-items-start">
                             <div v-for="(message, index) in activeContact.messages" :class="[message.status, 'mess']"
-                            :key="index" ref="activeContact">
-                            <div v-if="activeContact" class="position-relative">
-                              <div class="d-flex align-items-center justify-content-between">
-                                <span class="fw-semibold m-2 pm-2">{{ message.message }}</span>
-                                <button @click="showWindow(index)" class="btn border-0 btnCancel">
-                                  <i class="fa-solid fa-angle-down"></i>
-                                </button>
-                              </div>
-                              <div v-if="activeMessageIndex === index && show">
-                                <div class="cancel-window">
-                                  <button @click="cancelMsg" class="btn btn-danger">cancella</button>
+                                :key="index" ref="activeContact">
+                                <div v-if="activeContact" class="position-relative">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span class="fw-semibold m-2 pm-2">{{ message.message }}</span>
+                                        <button @click="showWindow(index)" class="btn border-0 btnCancel">
+                                            <i class="fa-solid fa-angle-down"></i>
+                                        </button>
+                                    </div>
+                                    <div v-if="activeMessageIndex === index && show">
+                                        <div class="cancel-window">
+                                            <button @click="cancelMsg" class="btn btn-danger">cancella</button>
+                                        </div>
+                                    </div>
+                                    <p class="text-end m-0 p-2">{{ message.date }}</p>
                                 </div>
-                              </div>
-                              <p class="text-end m-0 p-2">{{ message.date }}</p>
                             </div>
-                          </div>
-                          
+
                         </div>
 
-                        <div class="input-group mb-3 p-1">
+                        <div class="input-group p-1">
                             <button class="btn btn-outline-secondary rounded-0 border-0" type="button">
                                 <i class="fa-regular fa-face-smile"></i>
                             </button>
